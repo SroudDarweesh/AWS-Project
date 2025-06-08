@@ -1,7 +1,4 @@
-provider "aws" {
-    region = "us-east-2"
-}
-
+# This Terraform configuration sets up a VPC and a subnet in AWS.
 resource "aws_vpc" "darweesh_vpc" {
     cidr_block           = "10.0.0.0/16"
     enable_dns_support   = true
