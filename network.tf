@@ -34,6 +34,13 @@ resource "aws_security_group" "darweesh_sg" {
   description = "Allow SSH and HTTP"
   vpc_id      = aws_vpc.darweesh_vpc.id
 
+ ingress {
+    description = "RDP"
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # ⚠️ This allows access from anywhere. For production, use your IP only.
+  }
   ingress {
     description = "SSH"
     from_port   = 22
