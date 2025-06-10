@@ -10,11 +10,13 @@ terraform {
 provider "aws" {
   region = "us-east-2"
 }
+
+
 terraform {
   backend "s3" {
     bucket         = "your-terraform-state-bucket"
-    key            = "aws-project/terraform.tfstate"
+    key            = "env:/terraform.tfstate"
     region         = "us-east-2"
-    dynamodb_table = "terraform-locks" # Optional for state locking
+    use_lock_table = true  # ✅ replaces `dynamodb_table`
   }
 }
