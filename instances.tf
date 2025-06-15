@@ -6,7 +6,7 @@ resource "aws_instance" "ec2_instances" {
   subnet_id                   = aws_subnet.darweesh_subnet.id
   vpc_security_group_ids      = [aws_security_group.darweesh_sg.id]
   associate_public_ip_address = true
-  key_name                    = "windows-key"
+  key_name                    = "Windows-Key"
   tags = {
     Name = "darweesh-${count.index + 1}"
   }
